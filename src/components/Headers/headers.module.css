@@ -1,0 +1,167 @@
+.header {
+    background-color: var(--header-bg);
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    height: 25px;
+    transition: transform 0.3s;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+.desktopNav {
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+}
+
+.desktopNav li {
+    position: relative;
+    margin-bottom: 0;
+    list-style-type: none;
+}
+
+.desktopNav li a {
+    display: block;
+    color: #91b7ae;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.desktopNav li a:hover,
+.desktopNav li a.active {
+    color: var(--secondary-color);
+}
+
+.desktopNav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s;
+}
+
+.desktopNav li a:hover::after {
+    width: 70%;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.menuToggle {
+    width: 18px;
+    background: none;
+    border: none;
+    color: #91b7ae;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: block;
+    margin-right: 15px;
+}
+
+.userActions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.userActions a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 4px 15px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.userActions .login {
+    background-color: transparent;
+    border: 1px solid #fff;
+    background: #fff;
+    border-radius: 30px;
+    transition: filter 0.3s ease;
+}
+
+.userActions .login:hover {
+    background-color: none;
+    filter: drop-shadow(0 0 6px #fff);
+}
+
+.userActions .register {
+    background-color: var(--secondary-color);
+    border-radius: 30px;
+    transition: filter 0.3s ease;
+}
+
+.userActions .register:hover {
+    filter: drop-shadow(0 0 6px #f9c719);
+}
+
+
+
+
+
+
+
+
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 15px;
+    }
+
+    .desktopNav {
+        display: none;
+    }
+
+    .headerContent {
+        margin-left: 10px;
+    }
+
+    .userActions {
+        gap: 10px;
+    }
+}

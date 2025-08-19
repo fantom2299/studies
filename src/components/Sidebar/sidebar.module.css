@@ -1,0 +1,163 @@
+/*.overlay {*/
+/*    position: fixed;*/
+/*    inset: 0;*/
+/*    background: rgba(0,0,0,0);*/
+/*    pointer-events: none;*/
+/*    transition: background .25s ease;*/
+/*    z-index: 40;*/
+/*}*/
+/*.visible {*/
+/*    background: rgba(0,0,0,.55);*/
+/*    pointer-events: auto;*/
+/*}*/
+
+/*.sidebar {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    right: 0;*/
+/*    height: 100dvh;*/
+/*    width: min(88vw, 340px);*/
+/*    background: #0f1115;*/
+/*    color: #fff;*/
+/*    transform: translateX(100%);         !* спрятано *!*/
+/*    transition: transform .3s ease;*/
+/*    z-index: 50;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    border-left: 1px solid rgba(255,255,255,.08);*/
+/*    box-shadow: -24px 0 60px rgba(0,0,0,.35);*/
+/*}*/
+/*.open {*/
+/*    transform: translateX(0);            !* выезжает *!*/
+/*}*/
+
+/*!* Внутренние элементы *!*/
+/*.header {*/
+/*    display: flex; align-items: center; justify-content: space-between;*/
+/*    padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.08);*/
+/*}*/
+/*.logo { display: inline-flex; align-items: center; }*/
+/*.close {*/
+/*    background: transparent; border: 0; color: inherit; font-size: 20px; cursor: pointer;*/
+/*}*/
+
+/*.menu { list-style: none; margin: 0; padding: 8px 6px; overflow: auto; }*/
+/*.menu li a {*/
+/*    display: flex; align-items: center; gap: 10px;*/
+/*    padding: 10px 12px; border-radius: 10px; text-decoration: none; color: #e6e6e6;*/
+/*}*/
+/*.menu li a:hover { background: rgba(255,255,255,.06); color: #fff; }*/
+
+/*.lang { margin-top: auto; padding: 12px; display: flex; gap: 8px; align-items: center; }*/
+/*.support {*/
+/*    display: block; margin: 0 12px 12px; padding: 10px 12px; border-radius: 10px;*/
+/*    text-decoration: none; text-align: center; background: rgba(255,255,255,.08); color: #fff;*/
+/*}*/
+/*.support:hover { background: rgba(255,255,255,.14); }*/
+
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    transition: background .25s ease;
+    z-index: 40;
+}
+
+.visible {
+    background: rgba(0, 0, 0, .55);
+    pointer-events: auto;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100dvh;
+    width: min(88vw, 340px);
+    background: #0f1115;
+    color: #fff;
+    transform: translateX(-100%); /* спрятано */
+    transition: transform .3s ease;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: -24px 0 60px rgba(0, 0, 0, .35);
+}
+
+.open {
+    transform: translateX(0); /* выезжает */
+}
+
+/* Внутренние элементы */
+.sidebarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.sidebarLogo {
+    display: inline-flex;
+    align-items: center;
+}
+
+.closeBtn {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sidebarMenu {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 8px 6px;
+    overflow: auto;
+}
+
+
+
+.sidebarMenu li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #e6e6e6;
+}
+
+.sidebarMenu li a:hover {
+    background: rgba(255, 255, 255, .06);
+    color: #fff;
+}
+
+.languageSelector {
+    margin-top: auto;
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.supportLink {
+    display: block;
+    margin: 0 12px 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    background: rgba(255, 255, 255, .08);
+    color: #fff;
+}
+
+.supportLink:hover {
+    background: rgba(255, 255, 255, .14);
+}
