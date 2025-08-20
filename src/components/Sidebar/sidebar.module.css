@@ -56,108 +56,381 @@
 /*.support:hover { background: rgba(255,255,255,.14); }*/
 
 
+/*.overlay {*/
+/*    position: fixed;*/
+/*    inset: 0;*/
+/*    background: rgba(0, 0, 0, 0);*/
+/*    pointer-events: none;*/
+/*    transition: background .25s ease;*/
+/*    z-index: 40;*/
+/*}*/
+
+/*.visible {*/
+/*    background: rgba(0, 0, 0, .55);*/
+/*    pointer-events: auto;*/
+/*}*/
+
+/*.sidebar {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    height: 100dvh;*/
+/*    width: min(88vw, 340px);*/
+/*    background: #0f1115;*/
+/*    color: #fff;*/
+/*    transform: translateX(-100%); !* спрятано *!*/
+/*    transition: transform .3s ease;*/
+/*    z-index: 9999;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    border-left: 1px solid rgba(255, 255, 255, .08);*/
+/*    box-shadow: -24px 0 60px rgba(0, 0, 0, .35);*/
+/*}*/
+
+/*.open {*/
+/*    transform: translateX(0); !* выезжает *!*/
+/*}*/
+
+/*!* Внутренние элементы *!*/
+/*.sidebarHeader {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*    padding: 14px 16px;*/
+/*    border-bottom: 1px solid rgba(255, 255, 255, .08);*/
+/*}*/
+
+/*.sidebarLogo {*/
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.closeBtn {*/
+/*    background: transparent;*/
+/*    border: 0;*/
+/*    color: inherit;*/
+/*    font-size: 20px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.sidebarMenu {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    list-style: none;*/
+/*    margin: 0;*/
+/*    padding: 8px 6px;*/
+/*    overflow: auto;*/
+/*}*/
+
+
+
+/*.sidebarMenu li a {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 10px;*/
+/*    padding: 10px 12px;*/
+/*    border-radius: 10px;*/
+/*    text-decoration: none;*/
+/*    color: #e6e6e6;*/
+/*}*/
+
+/*.sidebarMenu li a:hover {*/
+/*    background: rgba(255, 255, 255, .06);*/
+/*    color: #fff;*/
+/*}*/
+
+/*.languageSelector {*/
+/*    margin-top: auto;*/
+/*    padding: 12px;*/
+/*    display: flex;*/
+/*    gap: 8px;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.supportLink {*/
+/*    display: block;*/
+/*    margin: 0 12px 12px;*/
+/*    padding: 10px 12px;*/
+/*    border-radius: 10px;*/
+/*    text-decoration: none;*/
+/*    text-align: center;*/
+/*    background: rgba(255, 255, 255, .08);*/
+/*    color: #fff;*/
+/*}*/
+
+/*.supportLink:hover {*/
+/*    background: rgba(255, 255, 255, .14);*/
+/*}*/
+
+
+
+/*.overlay {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: rgba(0, 0, 0, 0.5);*/
+/*    z-index: 998;*/
+/*    animation: fadeIn 0.3s ease;*/
+/*    display: none; !* Скрываем на десктопе *!*/
+/*}*/
+
+
+/*.sidebarMenu {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    list-style-type: none;*/
+/*    padding-left: 0;*/
+/*}*/
+
+
+
+/*.sidebar {*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: -300px;*/
+/*    width: 300px;*/
+/*    height: 100vh;*/
+/*    background: white;*/
+/*    z-index: 999;*/
+/*    transition: transform 0.3s ease;*/
+/*    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);*/
+/*    padding: 60px 0 0;*/
+/*}*/
+
+/*.sidebar.open {*/
+/*    transform: translateX(300px);*/
+/*}*/
+
+/*!* Для мобильных устройств *!*/
+/*@media (max-width: 768px) {*/
+/*    .overlay {*/
+/*        display: block; !* Показываем оверлей на мобильных *!*/
+/*    }*/
+
+/*    .sidebar {*/
+/*        left: -100%;*/
+/*        width: 80%;*/
+/*        max-width: 300px;*/
+/*    }*/
+
+/*    .sidebar.open {*/
+/*        transform: translateX(100%);*/
+/*    }*/
+/*}*/
+
+/*.closeButton {*/
+/*    position: absolute;*/
+/*    top: 15px;*/
+/*    right: 15px;*/
+/*    background: none;*/
+/*    border: none;*/
+/*    font-size: 24px;*/
+/*    cursor: pointer;*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.sidebarNav {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 15px;*/
+/*}*/
+
+/*.sidebarNav a {*/
+
+/*    padding: 12px;*/
+/*    text-decoration: none;*/
+/*    color: #333;*/
+/*    font-weight: 500;*/
+/*    border-radius: 5px;*/
+/*    transition: background-color 0.2s;*/
+/*}*/
+
+/*.sidebarNav a:hover {*/
+/*    background-color: #e9b700;*/
+/*    left: 0;*/
+
+
+/*    color: #000000;*/
+/*    border-left-color: #FFA500;*/
+/*    transform: none; !* Убираем смещение *!*/
+/*    box-shadow: none;*/
+/*    padding-left: 24px;*/
+/*}*/
+
+/*@keyframes fadeIn {*/
+/*    from { opacity: 0; }*/
+/*    to { opacity: 1; }*/
+/*}*/
+
+
+
+
 .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0);
-    pointer-events: none;
-    transition: background .25s ease;
-    z-index: 40;
-}
-
-.visible {
-    background: rgba(0, 0, 0, .55);
-    pointer-events: auto;
-}
-
-.sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100dvh;
-    width: min(88vw, 340px);
-    background: #0f1115;
-    color: #fff;
-    transform: translateX(-100%); /* спрятано */
-    transition: transform .3s ease;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    border-left: 1px solid rgba(255, 255, 255, .08);
-    box-shadow: -24px 0 60px rgba(0, 0, 0, .35);
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    animation: fadeIn 0.3s ease;
+    display: none; /* Скрываем на десктопе */
 }
 
-.open {
-    transform: translateX(0); /* выезжает */
-}
-
-/* Внутренние элементы */
 .sidebarHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 16px;
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
-}
-
-.sidebarLogo {
-    display: inline-flex;
-    align-items: center;
-}
-
-.closeBtn {
-    background: transparent;
-    border: 0;
-    color: inherit;
-    font-size: 20px;
-    cursor: pointer;
+    margin-left: 20px;
 }
 
 .sidebarMenu {
     display: flex;
     flex-direction: column;
-    list-style: none;
-    margin: 0;
-    padding: 8px 6px;
-    overflow: auto;
+    list-style-type: none;
+    padding-left: 0;
 }
 
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: #222723;
+    z-index: 999;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 60px 0 0; /* Убираем боковые паддинги */
+}
 
+.sidebar.open {
+    transform: translateX(300px);
+}
 
-.sidebarMenu li a {
+/* ОСНОВНЫЕ ИЗМЕНЕНИЯ - Ховер на всю строку */
+.sidebarNav {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #e6e6e6;
+    flex-direction: column;
+    gap: 0; /* Убираем промежутки */
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем паддинги */
+    width: 100%; /* На всю ширину */
 }
 
-.sidebarMenu li a:hover {
-    background: rgba(255, 255, 255, .06);
-    color: #fff;
-}
-
-.languageSelector {
-    margin-top: auto;
-    padding: 12px;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-.supportLink {
+.sidebarNav a {
     display: block;
-    margin: 0 12px 12px;
-    padding: 10px 12px;
-    border-radius: 10px;
+    padding: 16px 20px; /* Увеличиваем паддинги */
     text-decoration: none;
-    text-align: center;
-    background: rgba(255, 255, 255, .08);
-    color: #fff;
+    color: #ecf0f1;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent; /* Индикатор слева */
+    position: relative;
+    width: 100%; /* На всю ширину */
 }
 
-.supportLink:hover {
-    background: rgba(255, 255, 255, .14);
+/* Ховер на всю строку */
+.sidebarNav a:hover {
+    background-color: #FFD700 !important; /* Яркий желтый */
+    color: #000000 !important; /* Черный текст */
+    border-left-color: #FFA500; /* Оранжевая граница слева */
+    padding-left: 24px; /* Сдвиг текста при ховере */
+    transform: none;
+    box-shadow: none;
+    border-radius: 0; /* Убираем скругления */
+}
+
+/* Активный пункт меню */
+.sidebarNav a.active {
+    background-color: #FFF9C4; /* Светло-желтый */
+    color: #000000;
+    border-left-color: #FFA500;
+    font-weight: 600;
+    padding-left: 24px;
+}
+
+/* Градиентный эффект при ховере */
+.sidebarNav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,215,0,0.1) 0%, rgba(255,215,0,0) 100%);
+    transition: left 0.3s ease;
+    z-index: 0;
+}
+
+.sidebarNav a:hover::before {
+    left: 0;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .overlay {
+        display: block; /* Показываем оверлей на мобильных */
+    }
+
+    .sidebar {
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        padding: 60px 0 0; /* Сохраняем паддинги */
+    }
+
+    .sidebar.open {
+        transform: translateX(100%);
+    }
+
+    /* Адаптация для мобильных */
+    .sidebarNav a {
+        padding: 14px 20px;
+    }
+
+    .sidebarNav a:hover,
+    .sidebarNav a.active {
+        padding-left: 22px;
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Дополнительные улучшения */
+.sidebarNav a span {
+    position: relative;
+    z-index: 1; /* Текст поверх градиента */
+}
+
+/* Плавное изменение иконок (если есть) */
+.sidebarNav a svg {
+    transition: transform 0.3s ease;
+    margin-right: 10px;
+}
+
+.sidebarNav a:hover svg {
+    transform: scale(1.1);
 }

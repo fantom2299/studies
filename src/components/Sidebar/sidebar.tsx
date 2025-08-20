@@ -60,7 +60,6 @@
 // }
 
 
-
 // 'use client'
 //
 // import React from "react";
@@ -130,74 +129,135 @@
 // }
 
 
+// 'use client';
+//
+// import React from 'react';
+// import cls from './sidebar.module.css'; // ВАЖНО: импортируем модуль
+//
+// interface SidebarProps {
+//     isOpen: boolean;
+//     onClose: () => void;
+// }
+//
+// export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+//     return (
+//         <>
+//             {/* Оверлей */}
+//             <div
+//                 className={`${cls.overlay} ${isOpen ? cls.visible : ''}`}
+//                 onClick={onClose}
+//                 aria-hidden={!isOpen}
+//             />
+//
+//             {/* Сайдбар */}
+//             <aside
+//                 id="sidebar"
+//                 className={`${cls.sidebar} ${isOpen ? cls.open : ''}`}
+//                 role="dialog"
+//                 aria-modal="true"
+//                 aria-label="Меню навигации"
+//             >
+//                 <div className={cls.sidebarHeader}>
+//                     <div className={cls.sidebarLogo}>
+//                         <a href="https://casino-sultan-kz.kz/">
+//                             <img src="/logo.svg" alt="Sultan Games 365" width={130} height={30} />
+//                         </a>
+//                     </div>
+//                     <button className={cls.closeBtn} onClick={onClose} aria-label="Закрыть меню">
+//                         ✕
+//                     </button>
+//                 </div>
+//
+//                 <ul className={cls.sidebarMenu}>
+//                     <li><a href="https://casino-sultan-kz.kz/">Sultan Casino</a></li>
+//                     <li><a href="https://casino-sultan-kz.kz/process-registracii/">Sultan Casino регистрация</a></li>
+//                     <li><a href="https://casino-sultan-kz.kz/vhod/">Султан казино вход</a></li>
+//                     <li><a href="https://casino-sultan-kz.kz/promokod/">Sultan games промокод</a></li>
+//                     <li><a href="https://casino-sultan-kz.kz/dostupnoe-zerkalo/">Султан казино рабочее зеркало</a></li>
+//                     <li><a href="https://casino-sultan-kz.kz/app-sultan/">Султан казино скачать</a></li>
+//                     <li><a href="https://casino-sultan-kz.kz/igrovye-avtomaty-online-kz/">Султан казино слоты</a></li>
+//                 </ul>
+//
+//                 <div className={cls.languageSelector}>
+//                     <span>🌐</span>
+//                     <select>
+//                         <option value="ru">Русский</option>
+//                         <option value="en">English</option>
+//                     </select>
+//                 </div>
+//
+//                 {/*<a*/}
+//                 {/*    target="_blank"*/}
+//                 {/*    rel="nofollow noopener noreferrer"*/}
+//                 {/*    href="https://casino-sultan-kz.kz/goto/aHR0cHM6Ly9mZGxvY2F0b3Iuc2l0ZS9jY3pwbDBrLnBocD9rZXk9ZWdkM3loNm04dTh1d24zeDV1ZDMmQ2xpY2tJRD1jbnZfaWQ="*/}
+//                 {/*    className={cls.supportLink}*/}
+//                 {/*>*/}
+//                 {/*    🎧 Служба поддержки 24/7*/}
+//                 {/*</a>*/}
+//             </aside>
+//         </>
+//     );
+// }
 
 
-
+// components/Sidebar.tsx
 'use client';
 
-import React from 'react';
-import cls from './Sidebar.module.css'; // ВАЖНО: импортируем модуль
+import {useSidebar} from '@/Context/SidebarContext';
+import styles from '@/components/Sidebar/sidebar.module.css';
 
-interface SidebarProps {
-    isOpen: boolean;
-    onClose: () => void;
-}
+export default function Sidebar() {
+    const {isOpen, closeSidebar} = useSidebar();
 
-export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     return (
         <>
-            {/* Оверлей */}
-            <div
-                className={`${cls.overlay} ${isOpen ? cls.visible : ''}`}
-                onClick={onClose}
-                aria-hidden={!isOpen}
-            />
+            {/* Overlay */}
+            {isOpen && (
+                <div
+                    className={styles.overlay}
+                    onClick={closeSidebar}
+                    aria-hidden="true"
+                />
+            )}
 
-            {/* Сайдбар */}
+            {/* Sidebar */}
             <aside
-                id="sidebar"
-                className={`${cls.sidebar} ${isOpen ? cls.open : ''}`}
-                role="dialog"
-                aria-modal="true"
-                aria-label="Меню навигации"
+                className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}
+                aria-hidden={!isOpen}
             >
-                <div className={cls.sidebarHeader}>
-                    <div className={cls.sidebarLogo}>
+
+                <div className={styles.sidebarHeader}>
+                    <div className={styles.sidebarLogo}>
                         <a href="https://casino-sultan-kz.kz/">
-                            <img src="/logo.svg" alt="Sultan Games 365" width={130} height={30} />
+                            <img src="/logo.svg" alt="Sultan Games 365" width={130} height={30}/>
                         </a>
                     </div>
-                    <button className={cls.closeBtn} onClick={onClose} aria-label="Закрыть меню">
-                        ✕
+
+                    <button
+                        className={styles.closeButton}
+                        onClick={closeSidebar}
+                        aria-label="Закрыть меню"
+                    >
+                        ×
                     </button>
+
                 </div>
 
-                <ul className={cls.sidebarMenu}>
-                    <li><a href="https://casino-sultan-kz.kz/">Sultan Casino</a></li>
-                    <li><a href="https://casino-sultan-kz.kz/process-registracii/">Регистрация</a></li>
-                    <li><a href="https://casino-sultan-kz.kz/vhod/">Вход</a></li>
-                    <li><a href="https://casino-sultan-kz.kz/promokod/">Промокод</a></li>
-                    <li><a href="https://casino-sultan-kz.kz/dostupnoe-zerkalo/">Зеркало</a></li>
-                    <li><a href="https://casino-sultan-kz.kz/app-sultan/">Скачать</a></li>
-                    <li><a href="https://casino-sultan-kz.kz/igrovye-avtomaty-online-kz/">Слоты</a></li>
-                </ul>
 
-                <div className={cls.languageSelector}>
-                    <span>🌐</span>
-                    <select>
-                        <option value="ru">Русский</option>
-                        <option value="en">English</option>
-                    </select>
-                </div>
-
-                {/*<a*/}
-                {/*    target="_blank"*/}
-                {/*    rel="nofollow noopener noreferrer"*/}
-                {/*    href="https://casino-sultan-kz.kz/goto/aHR0cHM6Ly9mZGxvY2F0b3Iuc2l0ZS9jY3pwbDBrLnBocD9rZXk9ZWdkM3loNm04dTh1d24zeDV1ZDMmQ2xpY2tJRD1jbnZfaWQ="*/}
-                {/*    className={cls.supportLink}*/}
-                {/*>*/}
-                {/*    🎧 Служба поддержки 24/7*/}
-                {/*</a>*/}
+                <nav className={styles.sidebarNav}>
+                    <ul className={styles.sidebarMenu}>
+                        <li><a href="https://casino-sultan-kz.kz/">Sultan Casino</a></li>
+                        <li><a href="https://casino-sultan-kz.kz/process-registracii/">Sultan Casino регистрация</a>
+                        </li>
+                        <li><a href="https://casino-sultan-kz.kz/vhod/">Султан казино вход</a></li>
+                        <li><a href="https://casino-sultan-kz.kz/promokod/">Sultan games промокод</a></li>
+                        <li><a href="https://casino-sultan-kz.kz/dostupnoe-zerkalo/">Султан казино рабочее зеркало</a>
+                        </li>
+                        <li><a href="https://casino-sultan-kz.kz/app-sultan/">Султан казино скачать</a></li>
+                        <li><a href="https://casino-sultan-kz.kz/igrovye-avtomaty-online-kz/">Султан казино слоты</a>
+                        </li>
+                    </ul>
+                </nav>
             </aside>
         </>
     );

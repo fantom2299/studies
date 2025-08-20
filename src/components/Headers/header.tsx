@@ -98,6 +98,7 @@
 'use client'
 
 import { useEffect, useState, useCallback } from "react";
+import { useSidebar } from '@/Context/SidebarContext';
 import Sidebar from "@/components/Sidebar/sidebar"
 import Link from 'next/link';
 import Image from 'next/image';
@@ -106,15 +107,17 @@ import {faBars} from '@fortawesome/free-solid-svg-icons';
 import styles from '@/components/Headers/headers.module.css'; // Рекомендуется CSS Modules
 
 export default function Header() {
-    const [isOpen, setIsOpen] = useState(false);
+  const { toggleSidebar } = useSidebar();
 
-
-    const openMenu = useCallback(() => setIsOpen(true), []);
-    const closeMenu = useCallback(() => setIsOpen(false), []);
-
-    useEffect(() => {
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-    }, [isOpen]);
+    // const [isOpen, setIsOpen] = useState(false);
+    //
+    //
+    // const openMenu = useCallback(() => setIsOpen(true), []);
+    // const closeMenu = useCallback(() => setIsOpen(false), []);
+    //
+    // useEffect(() => {
+    //     document.body.style.overflow = isOpen ? 'hidden' : '';
+    // }, [isOpen]);
 
     const navItems = [
         {
@@ -201,8 +204,8 @@ export default function Header() {
             <header className={styles.header}>
                 <button className={styles.menuToggle}
                         id="menuToggle"
-                        onClick={openMenu}
-                        aria-expanded={isOpen}
+                        onClick={toggleSidebar}
+                        // aria-expanded={isOpen}
                         aria-controls="sidebar">
                     <FontAwesomeIcon icon={faBars}/>
                 </button>
@@ -270,7 +273,7 @@ export default function Header() {
             </header>
 
 
-            <Sidebar isOpen={isOpen} onClose={closeMenu} />
+            {/*<Sidebar isOpen={isOpen} onClose={closeMenu} />*/}
         </>
 
 

@@ -1,18 +1,22 @@
 
-import "./globals.css";
-
-
+import { SidebarProvider } from '@/Context/SidebarContext';
+import Layout from '@/components/Layout';
+import './globals.css';
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="ru">
+    <body>
+    <SidebarProvider>
+      <Layout>
         {children}
-      </body>
+      </Layout>
+    </SidebarProvider>
+    </body>
     </html>
   );
 }

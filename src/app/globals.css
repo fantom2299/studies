@@ -12,23 +12,49 @@
     --header-bg: #222723;
 }
 
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    -webkit-box-sizing: border-box;*/
+/*    box-sizing: border-box;*/
+/*    position: relative;*/
+/*    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
+/*}*/
+
+/*body {*/
+/*    background-color: #0F2F2B;*/
+/*    color: #fff;*/
+/*    line-height: 1.6;*/
+/*    -webkit-transition: margin-left 0.3s;*/
+/*    -o-transition: margin-left 0.3s;*/
+/*    transition: margin-left 0.3s;*/
+/*}*/
+
+
+/* globals.css */
 * {
     margin: 0;
     padding: 0;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    position: relative;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
     background-color: #0F2F2B;
-    color: #fff;
-    line-height: 1.6;
-    -webkit-transition: margin-left 0.3s;
-    -o-transition: margin-left 0.3s;
-    transition: margin-left 0.3s;
 }
+
+/* Плавные переходы для всех изменений размеров */
+main, .mainContent {
+    transition: width 0.3s ease, margin-left 0.3s ease, opacity 0.3s ease;
+}
+
+/* Предотвращаем скачки контента */
+html {
+    scroll-behavior: smooth;
+}
+
+
 ol,
 ul{
     display: flex;
