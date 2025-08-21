@@ -140,7 +140,7 @@ export default function BannerSection({
                     fill
                     className={styles.backgroundImage}
                     priority
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1400px) 80vw, 1400px"
                 />
 
                 {/* Второе изображение поверх */}
@@ -150,7 +150,7 @@ export default function BannerSection({
                             src={overlayImageUrl}
                             alt={overlayImageAlt}
                             width={800}
-                            height={400}
+                            height={408}
                             className={styles.overlayImage}
                         />
                     </div>
