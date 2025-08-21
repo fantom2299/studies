@@ -1,10 +1,13 @@
 .banner {
   position: relative;
-  width: 100%;
+  width: calc(111% - 300px);
+  height: 408px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 15px;
+  margin-top: 20px;
 }
 
 /* Варианты высоты */
@@ -16,9 +19,9 @@
   height: 400px;
 }
 
-.large {
-  height: 500px;
-}
+/*.large {*/
+/*  height: 500px;*/
+/*}*/
 
 .full {
   height: 100vh;
@@ -28,9 +31,11 @@
 .imageContainer {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 107px;
+  width: calc(111% - 300px);
   height: 100%;
+  overflow: hidden;
+  border-radius: 15px;
 }
 
 .image {
@@ -45,10 +50,10 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
-    rgba(0, 0, 0, 0.2) 100%
+          135deg,
+          rgba(0, 0, 0, 0.6) 0%,
+          rgba(0, 0, 0, 0.4) 50%,
+          rgba(0, 0, 0, 0.2) 100%
   );
   z-index: 1;
 }
@@ -62,24 +67,30 @@
   width: 100%;
 }
 
-/* Темы */
-.light .content {
+/* Стили для специального контента казино */
+.heroContent {
+  margin: 2rem 0;
+}
+
+.heroContentTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #FFD700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.heroContentText {
+  font-size: 1.8rem;
+  font-weight: 600;
   color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 2rem;
+  line-height: 1.3;
 }
 
-.dark .content {
-  color: #ffffff;
-}
-
-.light .overlay {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0.5) 100%
-  );
-}
-
+/* Стандартные текстовые стили */
 .textContainer {
   margin-bottom: 2rem;
 }
@@ -124,6 +135,34 @@
   background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
 }
 
+/* Анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroContent {
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.heroContentTitle {
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.heroContentText {
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.ctaContainer {
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
   .small {
@@ -141,6 +180,14 @@
   .full {
     height: 100vh;
     min-height: 500px;
+  }
+
+  .heroContentTitle {
+    font-size: 2rem;
+  }
+
+  .heroContentText {
+    font-size: 1.4rem;
   }
 
   .title {
@@ -161,7 +208,29 @@
   }
 }
 
+
+
+.overlayImageContainer {
+  position: absolute;
+  z-index: 3; /* Выше основного фона и оверлея */
+  transition: transform 0.3s ease;
+  width: calc(111% - 300px);
+}
+
+
+.overlayImageContainer img {
+  width: calc(111% - 300px)
+}
+
 @media (max-width: 480px) {
+  .heroContentTitle {
+    font-size: 1.75rem;
+  }
+
+  .heroContentText {
+    font-size: 1.2rem;
+  }
+
   .title {
     font-size: 1.75rem;
   }
@@ -175,26 +244,231 @@
   }
 }
 
-/* Анимации */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-.content {
-  animation: fadeInUp 0.8s ease-out;
-}
 
-.textContainer > * {
-  animation: fadeInUp 0.8s ease-out 0.2s both;
-}
+/*!* Контейнер для изображений *!*/
+/*!*.imageContainer {*!*/
+/*!*  position: absolute;*!*/
+/*!*  top: 0;*!*/
+/*!*  left: 0;*!*/
+/*!*  width: 100%;*!*/
+/*!*  height: 100%;*!*/
+/*!*}*!*/
 
-.ctaContainer {
-  animation: fadeInUp 0.8s ease-out 0.4s both;
-}
+/*!*!* Основное фоновое изображение *!*!*/
+/*!*.backgroundImage {*!*/
+/*!*  object-fit: cover;*!*/
+/*!*  object-position: center;*!*/
+/*!*  z-index: 1;*!*/
+/*!*}*!*/
+
+/*!*!* Контейнер для overlay изображения *!*!*/
+/*!*.overlayImageContainer {*!*/
+/*!*  position: absolute;*!*/
+/*!*  z-index: 3; !* Выше основного фона и оверлея *!*!*/
+/*!*  transition: transform 0.3s ease;*!*/
+/*!*}*!*/
+
+/*!*!* Позиции overlay изображения *!*!*/
+/*!*.overlayImageContainer.center {*!*/
+/*!*  top: 50%;*!*/
+/*!*  left: 50%;*!*/
+/*!*  transform: translate(-50%, -50%);*!*/
+/*!*}*!*/
+
+/*!*.overlayImageContainer.top-right {*!*/
+/*!*  top: 20px;*!*/
+/*!*  right: 20px;*!*/
+/*!*}*!*/
+
+/*!*.overlayImageContainer.top-left {*!*/
+/*!*  top: 20px;*!*/
+/*!*  left: 20px;*!*/
+/*!*}*!*/
+
+/*!*.overlayImageContainer.bottom-right {*!*/
+/*!*  bottom: 20px;*!*/
+/*!*  right: 20px;*!*/
+/*!*}*!*/
+
+/*!*.overlayImageContainer.bottom-left {*!*/
+/*!*  bottom: 20px;*!*/
+/*!*  left: 20px;*!*/
+/*!*}*!*/
+
+/*!*!* Само overlay изображение *!*!*/
+/*!*.overlayImage {*!*/
+/*!*  object-fit: contain;*!*/
+/*!*  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));*!*/
+/*!*  transition: all 0.3s ease;*!*/
+/*!*}*!*/
+
+/*!*.overlayImage:hover {*!*/
+/*!*  transform: scale(1.05);*!*/
+/*!*  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));*!*/
+/*!*}*!*/
+
+/*!*!* Адаптивность для overlay изображения *!*!*/
+/*!*@media (max-width: 768px) {*!*/
+/*!*  .overlayImageContainer.top-right,*!*/
+/*!*  .overlayImageContainer.top-left,*!*/
+/*!*  .overlayImageContainer.bottom-right,*!*/
+/*!*  .overlayImageContainer.bottom-left {*!*/
+/*!*    transform: scale(0.8);*!*/
+/*!*  }*!*/
+
+/*!*  .overlayImage {*!*/
+/*!*    width: 150px !important;*!*/
+/*!*    height: 150px !important;*!*/
+/*!*  }*!*/
+/*!*}*!*/
+
+/*!*@media (max-width: 480px) {*!*/
+/*!*  .overlayImageContainer.top-right,*!*/
+/*!*  .overlayImageContainer.top-left,*!*/
+/*!*  .overlayImageContainer.bottom-right,*!*/
+/*!*  .overlayImageContainer.bottom-left {*!*/
+/*!*    transform: scale(0.6);*!*/
+/*!*  }*!*/
+
+/*!*  .overlayImage {*!*/
+/*!*    width: 120px !important;*!*/
+/*!*    height: 120px !important;*!*/
+/*!*  }*!*/
+/*!*}*!*/
+
+/*!*!* Оверлей для затемнения фона *!*!*/
+/*!*.overlay {*!*/
+/*!*  position: absolute;*!*/
+/*!*  top: 0;*!*/
+/*!*  left: 0;*!*/
+/*!*  width: 100%;*!*/
+/*!*  height: 100%;*!*/
+/*!*  background: linear-gradient(*!*/
+/*!*          135deg,*!*/
+/*!*          rgba(0, 0, 0, 0.6) 0%,*!*/
+/*!*          rgba(0, 0, 0, 0.4) 50%,*!*/
+/*!*          rgba(0, 0, 0, 0.2) 100%*!*/
+/*!*  );*!*/
+/*!*  z-index: 2; !* Между фоном и overlay изображением *!*!*/
+/*!*}*!*/
+
+/*!*!* Контент поверх всего *!*!*/
+/*!*.content {*!*/
+/*!*  position: relative;*!*/
+/*!*  z-index: 4; !* Выше всех изображений *!*!*/
+/*!*}*!*/
+
+
+/* Контейнер для изображений */
+/*.imageContainer {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*}*/
+
+/*!* Основное фоновое изображение *!*/
+/*.backgroundImage {*/
+/*  object-fit: cover;*/
+/*  object-position: center;*/
+/*  z-index: 1;*/
+/*}*/
+
+/*!* Контейнер для overlay изображения *!*/
+/*.overlayImageContainer {*/
+/*  position: absolute;*/
+/*  z-index: 3; !* Выше основного фона и оверлея *!*/
+/*  transition: transform 0.3s ease;*/
+/*}*/
+
+/*!* Позиции overlay изображения *!*/
+/*.overlayImageContainer.center {*/
+/*  top: 50%;*/
+/*  left: 50%;*/
+/*  transform: translate(-50%, -50%);*/
+/*}*/
+
+/*.overlayImageContainer.top-right {*/
+/*  top: 20px;*/
+/*  right: 20px;*/
+/*}*/
+
+/*.overlayImageContainer.top-left {*/
+/*  top: 20px;*/
+/*  left: 20px;*/
+/*}*/
+
+/*.overlayImageContainer.bottom-right {*/
+/*  bottom: 20px;*/
+/*  right: 20px;*/
+/*}*/
+
+/*.overlayImageContainer.bottom-left {*/
+/*  bottom: 20px;*/
+/*  left: 20px;*/
+/*}*/
+
+/*!* Само overlay изображение *!*/
+/*.overlayImage {*/
+/*  object-fit: contain;*/
+/*  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));*/
+/*  transition: all 0.3s ease;*/
+/*}*/
+
+/*.overlayImage:hover {*/
+/*  transform: scale(1.05);*/
+/*  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));*/
+/*}*/
+
+/*!* Адаптивность для overlay изображения *!*/
+/*@media (max-width: 768px) {*/
+/*  .overlayImageContainer.top-right,*/
+/*  .overlayImageContainer.top-left,*/
+/*  .overlayImageContainer.bottom-right,*/
+/*  .overlayImageContainer.bottom-left {*/
+/*    transform: scale(0.8);*/
+/*  }*/
+
+/*  .overlayImage {*/
+/*    width: 150px !important;*/
+/*    height: 150px !important;*/
+/*  }*/
+/*}*/
+
+/*@media (max-width: 480px) {*/
+/*  .overlayImageContainer.top-right,*/
+/*  .overlayImageContainer.top-left,*/
+/*  .overlayImageContainer.bottom-right,*/
+/*  .overlayImageContainer.bottom-left {*/
+/*    transform: scale(0.6);*/
+/*  }*/
+
+/*  .overlayImage {*/
+/*    width: 120px !important;*/
+/*    height: 120px !important;*/
+/*  }*/
+/*}*/
+
+/*!* Оверлей для затемнения фона *!*/
+/*.overlay {*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  background: linear-gradient(*/
+/*          135deg,*/
+/*          rgba(0, 0, 0, 0.6) 0%,*/
+/*          rgba(0, 0, 0, 0.4) 50%,*/
+/*          rgba(0, 0, 0, 0.2) 100%*/
+/*  );*/
+/*  z-index: 2; !* Между фоном и overlay изображением *!*/
+/*}*/
+
+/*!* Контент поверх всего *!*/
+/*.content {*/
+/*  position: relative;*/
+/*  z-index: 4; !* Выше всех изображений *!*/
+/*}*/
